@@ -9,9 +9,10 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.text :text_4
       t.integer :hour_id, null: false
       t.integer :machine_id, null: false
+      t.string :other_machine
       t.integer :time_zone_id, null: false
       t.integer :price, null: false
-      
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
