@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+
+<div >
+  <div >
+    <div >
+      <h2 >
+        <%= "#{@user.nickname}さん"%>
+      </h2>
+      
+      <h2 >
+        <%= "#{@user.nickname}さんの講座"%>
+      </h2>
+      <div >
+        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+        <%# <%= render partial: 'prototypes/prototype', collection: @prototypes%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

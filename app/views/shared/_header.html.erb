@@ -10,7 +10,7 @@
   </div>
   <div class='nav'>
     <ul class='lists-right'>
-      <li><%= link_to current_user.nickname, root_path, class: "user-nickname" %></li>
+      <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <li><%= link_to '講座開設', root_path, class: "courseup" %></li>
     </ul>
