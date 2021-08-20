@@ -26,13 +26,14 @@
 | text_4        | text       |                   |
 | hour_id       | integer    | null: false       |
 | machine_id    | integer    | null: false       |
+| other_machine | string     |                   |
 | time_zone_id  | integer    | null: false       |
 | price         | integer    | null: false       |
 | user          | references | foreign_key: true |
 
 ### Association
 
-- has_many :courses
+- has_many :orders
 - belongs_to :user
 
 ## orders テーブル
