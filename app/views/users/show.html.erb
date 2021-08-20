@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 
+
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
@@ -10,12 +11,13 @@
       <h2 class="page-heading">
         <%= "#{@user.nickname}さんの講座"%>
       </h2>
+    </div>
       <div class="user__card">
         <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
         <%# <%= render partial: 'prototypes/prototype', collection: @prototypes%> %>
       </div>
-    </div>
   </div>
 </div>
 
 <%= render "shared/footer" %>
+
