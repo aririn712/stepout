@@ -1,5 +1,5 @@
 function calculation (){
-  const item_price = document.getElementById("item-price")
+  const item_price = document.getElementById("course-price")
   if (!item_price){ return false;}
   item_price.addEventListener("input", () => {
     const inputValue = item_price.value;

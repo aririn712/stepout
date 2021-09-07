@@ -28,6 +28,10 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   private
 
   def course_params

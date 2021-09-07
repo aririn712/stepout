@@ -1,136 +1,112 @@
-<div class="items-sell-contents">
-  <header class="items-sell-header">
+<div class="courses-sell-contents">
+  <header class="courses-sell-header">
     <%= link_to image_tag('stepout-logo.png' , size: '185x50'), "/" %>
 
   </header>
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
+  <div class="courses-sell-main">
+    <h2 class="courses-sell-title">講座内容を入力</h2>
     <%= form_with model: @course, local: true do |f| %>
 
-    
+    <%#エラー表示%>
     <%= render 'shared/error_messages', model: f.object %>
+    <%#/エラー表示%>
     
-
-    
-    <%# 商品名と商品説明 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        商品画像
-        <span class="indispensable">必須</span>
+    <%# 講座内容 %>
+    <div class="field">
+      <div class="side-text">
+        講座の背景画像
       </div>
       <div class="click-upload">
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"course-image" %>
       </div>
     </div>
-    <div class="new-items">
-      <div class="weight-bold-text">
+
+    <div class="field">
+      <div class="side-text">
         講座名
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-detail">
-        <div class="weight-bold-text">商品の詳細</div>
-        <div class="form">
-          <div class="weight-bold-text">
-            カテゴリー
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-        </div>
-      </div>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          講座の説明(一つ以上記入してください)
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :text_1, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-        <%= f.text_area :text_2, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
-        <%= f.text_area :text_3, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
-        <%= f.text_area :text_4, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
-      </div>
     </div>
-    <%# /商品名と商品説明 %>
 
-    
-
-    <%# 配送について %>
-    <div class="items-detail">
-      <div class="weight-bold-text question-text">
-        <span>受講について</span>
-        <a class="question" href="#">?</a>
+    <div class="field">
+      <div class="side-text">
+        講座の説明(一つ以上記入してください)
+        <span class="indispensable">必須</span>
       </div>
-      <div class="form">
-        <div class="weight-bold-text">
-          受講時間
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
-        <div class="weight-bold-text">
-          受講に必要な機材
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:machine_id, Machine.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
-        <div class="weight-bold-text">
-        その他の場合
-        </div>
-        <%= f.text_field :other_machine, class:"items-text", id:"item-name", placeholder:"機材名（40文字まで)", maxlength:"40" %>
-        <div class="weight-bold-text">
-          受講できる時間帯
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:time_zone_id, TimeZone.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
-      </div>
+      <%= f.text_area :text_1, class:"items-text", id:"item-info", placeholder:"必須" ,rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_2, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_3, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_4, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
     </div>
-    <%# /配送について %>
 
-    <%# 販売価格 %>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
+    <div class="field">
+      <div class="side-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
       </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
-        </div>
-        <div class="price-content">
-          <span>販売手数料 (10%)</span>
-          <span>
-            <span id='add-tax-price'></span>円
-          </span>
-        </div>
-        <div class="price-content">
-          <span>販売利益</span>
-          <span>
-            <span id='profit'></span>円
-        </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"course-category"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        受講時間
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, {class:"select-box", id:"course-hour"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        受講に必要な機材
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:machine_id, Machine.all, :id, :name, {}, {class:"select-box", id:"course-machine"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        その他に選んだ場合、またさらに必要な機材がある場合入力してください
+      </div>
+      <%= f.text_field :other_machine, class:"items-text", id:"item-name", placeholder:"機材名（40文字まで)", maxlength:"40" %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        講義できる時間帯
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:time_zone_id, TimeZone.all, :id, :name, {}, {class:"select-box", id:"course-time-zone"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        講座料金(¥100〜99,999)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :price, class:"price-input", id:"course-price", placeholder:"例）300" %>
+      <div class="price-content">
+        <span>販売手数料 (10%)</span>
+        <span>
+          <span id='add-tax-price'></span>円
         </span>
       </div>
+      <div class="price-content">
+        <span>販売利益</span>
+          <span>
+            <span id='profit'></span>円
+          </span>
+      </div>
     </div>
-    <%# /販売価格 %>
+    <%# /講座内容 %>
 
     <%# 注意書き %>
     <div class="caution">
       <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。
-      </p>
-      <p class="sentence">
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。
-      </p>
-      <p class="sentence">
-        また、出品をもちまして
+        出品をもちまして
         <a href="#">加盟店規約</a>
         に同意したことになります。
       </p>
@@ -138,22 +114,13 @@
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%= f.submit "開講" ,class:"sell-btn" %>
+      <%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
+    <% end %>
   </div>
-  <% end %>
+  
 
-  <footer class="items-sell-footer">
-    <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li>
-    </ul>
-    <%= link_to image_tag('stepout-logo.png' , size: '185x50'), "/" %>
-    <p class="inc">
-      ©︎Furima,Inc.
-    </p>
-  </footer>
 </div>
+<%= render "shared/footer" %>
