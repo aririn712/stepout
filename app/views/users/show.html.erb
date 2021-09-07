@@ -12,8 +12,8 @@
         <%= "#{@user.nickname}さんの講座"%>
       </h2>
       <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-        <%# <%= render partial: 'prototypes/prototype', collection: @prototypes%> %>
+        
+         <%= render partial: 'courses/course', collection: @courses%> 
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions 
   belongs_to :user
+  has_one_attached :image
   belongs_to :category
   belongs_to :hour
   belongs_to :machine
@@ -9,7 +10,6 @@ class Course < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :text_1
-    validates :other_machine
   end
   with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
