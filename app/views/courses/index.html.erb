@@ -1,5 +1,165 @@
 <%= render "shared/header" %>
 
+<div class="main">
+  <%# 画面上部の帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      あなたが学び、あなたが教える
+    </h2>
+    <p class='service-explain'>
+      夢を叶えるための一歩めをここで踏み出そう
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
+    </div>
+  </div>
+  <%# /画面上部の帯部分  %>
 
+  <%# 講座一覧%>
+  <div class="course-content">
+    <div class="category-title" >
+      最新投稿一覧
+    </div>
+    <ul class='course-lists'>
+      <%if @courses.length > 0%>
+        <%= render partial: 'course', collection: @courses%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      プログラミング
+    </div>
+    <ul class='course-lists'>
+      <%if @course1.length > 0%>
+        <%= render partial: 'course', collection: @course1%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      ゲーム
+    </div>
+    <ul class='course-lists'>
+      <%if @course2.length > 0%>
+        <%= render partial: 'course', collection: @course2%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      イラスト
+    </div>
+    <ul class='course-lists'>
+      <%if @course3.length > 0%>
+        <%= render partial: 'course', collection: @course3%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      音楽
+    </div>
+    <ul class='course-lists'>
+      <%if @course4.length > 0%>
+        <%= render partial: 'course', collection: @course4%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      エクササイズ
+    </div>
+    <ul class='course-lists'>
+      <%if @course5.length > 0%>
+        <%= render partial: 'course', collection: @course5%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      スポーツ
+    </div>
+    <ul class='course-lists'>
+      <%if @course6.length > 0%>
+        <%= render partial: 'course', collection: @course6%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      趣味
+    </div>
+    <ul class='course-lists'>
+      <%if @course7.length > 0%>
+        <%= render partial: 'course', collection: @course7%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      教育・教養
+    </div>
+    <ul class='course-lists'>
+      <%if @course8.length > 0%>
+        <%= render partial: 'course', collection: @course8%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      ビジネススキル
+    </div>
+    <ul class='course-lists'>
+      <%if @course9.length > 0%>
+        <%= render partial: 'course', collection: @course9%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="course-content">
+    <div class="category-title" >
+      その他
+    </div>
+    <ul class='course-lists'>
+      <%if @course10.length > 0%>
+        <%= render partial: 'course', collection: @course10%>
+      <% else %>
+        <%= render "dummy" %>
+      <% end %>
+    </ul>
+  </div>
+  <%# /講座一覧%>
+</div>
 
 <%= render "shared/footer" %>
