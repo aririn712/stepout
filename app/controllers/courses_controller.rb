@@ -13,7 +13,6 @@ class CoursesController < ApplicationController
     @course8 = Course.where(category_id: 9)
     @course9 = Course.where(category_id: 10)
     @course10 = Course.where(category_id: 11)
-
   end
 
   def new
@@ -30,11 +29,9 @@ class CoursesController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def update
@@ -53,7 +50,8 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :category_id, :text_1, :text_2, :text_3, :text_4, :hour_id, :machine_id, :other_machine, :time_zone_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:course).permit(:title, :category_id, :text_1, :text_2, :text_3, :text_4, :hour_id, :machine_id,
+                                   :other_machine, :time_zone_id, :price, :image).merge(user_id: current_user.id)
   end
 
   def find_params

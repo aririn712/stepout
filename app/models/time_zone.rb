@@ -6,7 +6,7 @@ class TimeZone < ActiveHash::Base
     { id: 4, name: '午後' },
     { id: 5, name: '夕方' },
     { id: 6, name: '午前0時前' },
-    { id: 7, name: '午前0時以降' },
+    { id: 7, name: '午前0時以降' }
   ]
   include ActiveHash::Associations
   has_many :courses
