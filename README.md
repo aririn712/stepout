@@ -41,19 +41,11 @@
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
 | course     | references | foreign_key: true |
-
-### Association
-
-- belongs_to :course
-
-## order_users テーブル
-
-| Column        | Type       | Options           |
-| ------------- | ---------- | ----------------- |
-| user          | references | foreign_key: true |
-| order         | references | foreign_key: true |
+| user       | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :order
+- belongs_to :course
+
+
