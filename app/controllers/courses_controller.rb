@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      redirect_to root_path
+      redirect_to "/users/#{current_user.id}"
     else
       render :new
     end
@@ -38,11 +38,16 @@ class CoursesController < ApplicationController
   end
 
   def update
-    
+    if @course.update(course_params)
+      redirect_to course_path(@course.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    
+    @course.destroy
+    redirect_to "/users/#{current_user.id}"
   end
 
   private
