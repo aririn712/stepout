@@ -1,6 +1,7 @@
 <%= render "shared/header" %>
 
 <div class="main">
+
   <%# 画面上部の帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
@@ -38,7 +39,9 @@
       <%if @course1.length > 0%>
         <%= render partial: 'course', collection: @course1%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -51,7 +54,9 @@
       <%if @course2.length > 0%>
         <%= render partial: 'course', collection: @course2%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -64,7 +69,9 @@
       <%if @course3.length > 0%>
         <%= render partial: 'course', collection: @course3%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -77,7 +84,9 @@
       <%if @course4.length > 0%>
         <%= render partial: 'course', collection: @course4%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -90,7 +99,9 @@
       <%if @course5.length > 0%>
         <%= render partial: 'course', collection: @course5%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -103,7 +114,9 @@
       <%if @course6.length > 0%>
         <%= render partial: 'course', collection: @course6%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -116,7 +129,9 @@
       <%if @course7.length > 0%>
         <%= render partial: 'course', collection: @course7%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -129,7 +144,9 @@
       <%if @course8.length > 0%>
         <%= render partial: 'course', collection: @course8%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -142,7 +159,9 @@
       <%if @course9.length > 0%>
         <%= render partial: 'course', collection: @course9%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>
@@ -155,7 +174,9 @@
       <%if @course10.length > 0%>
         <%= render partial: 'course', collection: @course10%>
       <% else %>
-        <%= render "dummy" %>
+        <div class="not-course">
+          受講できる講座はありません
+        </div>
       <% end %>
     </ul>
   </div>

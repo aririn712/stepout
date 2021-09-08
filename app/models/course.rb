@@ -21,6 +21,6 @@ class Course < ApplicationRecord
                     numericality: {
                       allow_blank: true,
                       only_integer: true,
-                      greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999
+                      greater_than_or_equal_to: 100, less_than_or_equal_to: 99_999
                     }
 end

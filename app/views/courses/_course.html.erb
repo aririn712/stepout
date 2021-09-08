@@ -1,6 +1,6 @@
         <li class='list'>
           <div class='course-img-content'>
-          <%= link_to "#" do %>
+          <%= link_to course_path(course.id) do %>
           <%if course.image.present?%>
             <%= image_tag course.image, class: "course-img" %>
           <%else%>

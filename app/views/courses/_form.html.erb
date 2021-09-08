@@ -1,0 +1,117 @@
+  <div class="courses-sell-main">
+    <h2 class="courses-sell-title">講座内容を入力</h2>
+    <%= form_with model: @course, local: true do |f| %>
+
+    <%#エラー表示%>
+    <%= render 'shared/error_messages', model: f.object %>
+    <%#/エラー表示%>
+    
+    <%# 講座内容 %>
+    <div class="field">
+      <div class="side-text">
+        講座の背景画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"course-image" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        講座名(わかりやすく講座紹介)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        講座の説明(一つ以上記入してください)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text_1, class:"items-text", id:"item-info", placeholder:"必須" ,rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_2, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_3, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_4, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"course-category"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        受講時間
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, {class:"select-box", id:"course-hour"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        受講に必要な機材
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:machine_id, Machine.all, :id, :name, {}, {class:"select-box", id:"course-machine"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        その他に選んだ場合、またさらに必要な機材がある場合入力してください
+      </div>
+      <%= f.text_field :other_machine, class:"items-text", id:"item-name", placeholder:"機材名（40文字まで)", maxlength:"40" %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        講義できる時間帯
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:time_zone_id, TimeZone.all, :id, :name, {}, {class:"select-box", id:"course-time-zone"}) %>
+    </div>
+
+    <div class="field">
+      <div class="side-text">
+        講座料金(¥100〜99,999)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :price, class:"price-input", id:"course-price", placeholder:"例）300" %>
+      <div class="price-content">
+        <span>販売手数料 (10%)</span>
+        <span>
+          <span id='add-tax-price'></span>円
+        </span>
+      </div>
+      <div class="price-content">
+        <span>販売利益</span>
+          <span>
+            <span id='profit'></span>円
+          </span>
+      </div>
+    </div>
+    <%# /講座内容 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        出品をもちまして
+        <a href="#">加盟店規約</a>
+        に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "保存する" ,class:"sell-btn" %>
+      <%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+    <% end %>
+  </div>

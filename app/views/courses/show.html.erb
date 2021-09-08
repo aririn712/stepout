@@ -1,0 +1,82 @@
+<%= render "shared/header" %>
+
+<div class="course-main-content">
+
+  <%#講座内容%>
+  <div class="course-img-content">
+  <%if @course.image.present?%>
+    <%= image_tag @course.image ,class:"course-box-img" %>
+  <%end%>
+  </div>
+
+  <div class="course-title-content">
+    <%= @course.title %>
+  </div>
+
+  <div class="course-text-content">
+    <p class="text-title">講座説明</p>
+    <p class="text-message"><%= @course.text_1%></p>
+    <%if @course.text_2.present?%>
+    <p class="text-message"><%= @course.text_2%></p>
+    <% end %>
+    <%if @course.text_3.present?%>
+    <p class="text-message"><%= @course.text_3%></p>
+    <% end %>
+    <%if @course.text_4.present?%>
+    <p class="text-message"><%= @course.text_4%></p>
+    <% end %>
+  </div>
+
+  <div class="course-detail">
+    <div class="course-detail-content">
+      <span class="detail-title">カテゴリー : </span><span class="detail-message"><%=@course.category.name%></span>
+    </div>
+    <div class="course-detail-content">
+      <span class="detail-title">作成者 : </span><%= link_to @course.user.nickname, "/users/#{@course.user.id}", class: :course_user %>
+    </div>
+    <div class="course-detail-content">
+      <span class="detail-title">講習時間 : </span><span class="detail-message"><%=@course.hour.name%></span>
+    </div>
+    <div class="course-detail-content">
+    <%if @course.machine.id < 11%>
+      <span class="detail-title">必要になる機材 : </span><span class="detail-message"><%=@course.machine.name%></span>
+      <%if @course.other_machine.present?%>
+      <span class="detail-message"> , <%=@course.other_machine%></span>
+      <% end %>
+    <%else%>
+      <span class="detail-title">必要になる機材 : </span><span class="detail-message"><%=@course.other_machine%></span>
+    <% end %>
+    </div>
+    <div class="course-detail-content">
+      <span class="detail-title">受講可能な時間帯 : </span><span class="detail-message"><%=@course.time_zone.name%></span>
+    </div>
+  </div>
+
+  <div class="course-price-content">
+    ¥<span class="price-number"><%=@course.price%></span>
+  </div>
+  <%#/講座内容%>
+
+  <%#編集or受講ボタン%>
+
+  <% if user_signed_in? %>
+    <% if current_user.id == @course.user_id%>
+      <%= link_to "講座の編集", edit_course_path(@course.id), method: :get, class: "course-btn" %>
+      <p class="or-text">or</p>
+      <%= link_to "講座を削除", course_path(@course.id), method: :delete, class:"course-destroy" %>
+    <% else %>
+      <%= link_to "受講画面に進む", "/" ,class:"course-btn"%>
+    <% end %>
+  <% end %>
+
+  <%#/編集or受講ボタン%>
+
+  <%#返金保証%>
+  <div class="refund"> 
+    7日間返金保証
+  </div>
+  <%#/返金保証%>
+
+</div>
+
+<%= render "shared/footer" %>
