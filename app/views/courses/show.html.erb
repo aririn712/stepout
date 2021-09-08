@@ -65,17 +65,17 @@
       <p class="or-text">or</p>
       <%= link_to "講座を削除", course_path(@course.id), method: :delete, class:"course-destroy" %>
     <% else %>
-      <%= link_to "受講画面に進む", "/" ,class:"course-btn"%>
+      <% unless current_user.like?(@course) %>
+        <%= link_to "受講を希望する", course_orders_path(@course.id), method: :post ,class:"course-btn"%>
+      <% else %>
+        <%= link_to "受講希望を取り消す", course_order_path(@course.id), method: :delete ,class:"course-btn"%>
+      <% end %>
     <% end %>
   <% end %>
 
   <%#/編集or受講ボタン%>
 
-  <%#返金保証%>
-  <div class="refund"> 
-    7日間返金保証
-  </div>
-  <%#/返金保証%>
+  
 
 </div>
 

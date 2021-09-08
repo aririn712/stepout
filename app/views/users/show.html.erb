@@ -7,6 +7,8 @@
         <%= "#{@user.nickname}さんのユーザーページ"%>
       </h2>
   </div>
+
+  <%#開講した講座一覧%>
   <div class="course-content">
     <div class="category-title" >
       <%= "#{@user.nickname}さんの講座"%>
@@ -21,6 +23,26 @@
       <% end %>
     </ul>
   </div>
+  <%#/開講した講座一覧%>
+
+  <%#受講希望した講座一覧%>
+  <%if current_user.id == @user.id  %>
+  <div class="order-course">
+    <div class="category-title" >
+      受講希望している講座
+    </div>
+    <ul class='course-lists'>
+      <%if current_user.orders.present?%>
+        <%= render partial: 'courses/course', collection: @order_courses%> 
+      <% else %>
+        <div class="not-order">
+          現在受講を希望している講座はありません
+        </div>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%#/受講希望した講座一覧%>
 </div>
 
 <%= render "shared/footer" %>
