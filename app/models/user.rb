@@ -15,7 +15,7 @@ class User < ApplicationRecord
   def like?(course)
     ord_courses.include?(course)
   end
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :nickname, presence: true

@@ -47,8 +47,6 @@ class CoursesController < ApplicationController
     redirect_to "/users/#{current_user.id}"
   end
 
-
-
   private
 
   def course_params
