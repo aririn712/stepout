@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_params, only: [:show, :edit, :update, :destroy]
   def index
     @courses = Course.all.order('created_at DESC')
     @course1 = Course.where(category_id: 2)
@@ -32,9 +33,25 @@ class CoursesController < ApplicationController
     
   end
 
+  def edit
+    
+  end
+
+  def update
+    
+  end
+
+  def destroy
+    
+  end
+
   private
 
   def course_params
     params.require(:course).permit(:title, :category_id, :text_1, :text_2, :text_3, :text_4, :hour_id, :machine_id, :other_machine, :time_zone_id, :price, :image).merge(user_id: current_user.id)
+  end
+
+  def find_params
+    @course = Course.find(params[:id])
   end
 end

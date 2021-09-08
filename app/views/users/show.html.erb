@@ -1,21 +1,25 @@
 <%= render "shared/header" %>
 
 
-<div class="main">
-  <div class="inner">
-    <div class="user__wrapper">
+<div class="user-main">
+  <div class="user-info">
       <h2 class="page-heading">
-        <%= "#{@user.nickname}さん"%>
+        <%= "#{@user.nickname}さんのユーザーページ"%>
       </h2>
-      
-      <h2 class="page-heading">
-        <%= "#{@user.nickname}さんの講座"%>
-      </h2>
-      <div class="user__card">
-        
-         <%= render partial: 'courses/course', collection: @courses%> 
-      </div>
+  </div>
+  <div class="course-content">
+    <div class="category-title" >
+      <%= "#{@user.nickname}さんの講座"%>
     </div>
+    <ul class='course-lists'>
+      <%if @courses.length > 0%>
+        <%= render partial: 'courses/course', collection: @courses%> 
+      <% else %>
+        <div class="not-course">
+          <%= render "courses/dummy" %>
+        </div>
+      <% end %>
+    </ul>
   </div>
 </div>
 
