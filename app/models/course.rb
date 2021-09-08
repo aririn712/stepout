@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
+  has_many :orders, dependent: :destroy
   has_one_attached :image
   belongs_to :category
   belongs_to :hour

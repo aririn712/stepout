@@ -1,5 +1,21 @@
 class User < ApplicationRecord
   has_many :courses
+  has_many :orders
+  has_many :ord_courses, through: :orders, source: :course
+
+  def like(course)
+    orders.find_or_create_by(course_id: course.id)
+  end
+
+  def unlike(course)
+    order = orders.find_by(course_id: course.id)
+    order.destroy if order
+  end
+
+  def like?(course)
+    ord_courses.include?(course)
+  end
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :nickname, presence: true

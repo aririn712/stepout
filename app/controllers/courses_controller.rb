@@ -3,16 +3,16 @@ class CoursesController < ApplicationController
   before_action :find_params, only: [:show, :edit, :update, :destroy]
   def index
     @courses = Course.all.order('created_at DESC')
-    @course1 = Course.where(category_id: 2)
-    @course2 = Course.where(category_id: 3)
-    @course3 = Course.where(category_id: 4)
-    @course4 = Course.where(category_id: 5)
-    @course5 = Course.where(category_id: 6)
-    @course6 = Course.where(category_id: 7)
-    @course7 = Course.where(category_id: 8)
-    @course8 = Course.where(category_id: 9)
-    @course9 = Course.where(category_id: 10)
-    @course10 = Course.where(category_id: 11)
+    @course1 = Course.where(category_id: 2).order('created_at DESC')
+    @course2 = Course.where(category_id: 3).order('created_at DESC')
+    @course3 = Course.where(category_id: 4).order('created_at DESC')
+    @course4 = Course.where(category_id: 5).order('created_at DESC')
+    @course5 = Course.where(category_id: 6).order('created_at DESC')
+    @course6 = Course.where(category_id: 7).order('created_at DESC')
+    @course7 = Course.where(category_id: 8).order('created_at DESC')
+    @course8 = Course.where(category_id: 9).order('created_at DESC')
+    @course9 = Course.where(category_id: 10).order('created_at DESC')
+    @course10 = Course.where(category_id: 11).order('created_at DESC')
   end
 
   def new
@@ -46,6 +46,8 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to "/users/#{current_user.id}"
   end
+
+
 
   private
 
