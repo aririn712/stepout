@@ -1,11 +1,11 @@
         <li class='list'>
           <div class='course-img-content'>
-          <%= link_to course_path(course.id) do %>
-          <%if course.image.present?%>
-            <%= image_tag course.image, class: "course-img" %>
-          <%else%>
-            <%= image_tag "22116720_s.jpg", class: "course-img" %>
-          <% end %>
+            <%= link_to course_path(course.id) do %>
+            <%if course.image.present?%>
+              <%= image_tag course.image, class: "course-img" %>
+            <%else%>
+              <%= image_tag "22116720_s.jpg", class: "course-img" %>
+            <% end %>
           </div>
           <div class='course-info'>
             <h3 class='course-title'>

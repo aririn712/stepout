@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
+
   def index
     @courses = Course.all.order('created_at DESC')
     @course1 = Course.where(category_id: 2).order('created_at DESC')
@@ -47,6 +49,11 @@ class CoursesController < ApplicationController
     redirect_to "/users/#{current_user.id}"
   end
 
+  def favorite
+    orders = Order.where(course_id: params[:course_id]).pluck(:user_id)
+    @order_users = User.includes(orders)
+  end
+
   private
 
   def course_params
@@ -57,4 +64,9 @@ class CoursesController < ApplicationController
   def find_params
     @course = Course.find(params[:id])
   end
+
+  def move_to_index
+    redirect_to action: :index unless current_user.id == @course.user_id
+  end
+
 end
