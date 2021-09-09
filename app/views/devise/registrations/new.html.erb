@@ -1,4 +1,7 @@
-<%= render "shared/second-header"%>
+<header class="second-header">
+  <%= link_to image_tag('step-out.logo.png' , size: '185x50'), "#" %>
+</header>
+
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
