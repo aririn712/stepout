@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'courses#index'
   resources :courses do
     resources :orders, only: [:create, :destroy]
+    collection do
+      get :favorite
+    end
   end
   resources :users, only: :show
 end
