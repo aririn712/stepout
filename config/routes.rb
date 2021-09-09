@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :courses do
     resources :orders, only: [:create, :destroy]
     collection do
+      get :search
+    end
+    collection do
       get :favorite
     end
   end

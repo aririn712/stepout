@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+
+<div class="course-content">
+  <div class="category-title" >
+      検索結果
+  </div>
+    <ul class='course-lists'>
+      <%= render partial: 'course', collection: @courses%>
+    </ul>
+</div>
+
+<%= render "shared/footer" %>

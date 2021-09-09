@@ -49,6 +49,10 @@ class CoursesController < ApplicationController
     redirect_to "/users/#{current_user.id}"
   end
 
+  def search
+    @courses = Course.search(params[:keyword])
+  end
+
   def favorite
     orders = Order.where(course_id: params[:course_id]).pluck(:user_id)
     @order_users = User.includes(orders)
