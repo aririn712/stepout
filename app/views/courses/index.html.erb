@@ -4,12 +4,14 @@
 
   <%# 画面上部の帯部分 %>
   <div class='title-contents'>
-    <h2 class='service-title'>
-      あなたが学び、あなたが教える
-    </h2>
-    <p class='service-explain'>
-      夢を叶えるための一歩めをここで踏み出そう
-    </p>
+    <div class="service-contents">
+      <h2 class='service-title'>
+        あなたが学び、あなたが教える
+      </h2>
+      <p class='service-explain'>
+        ~夢を叶えるための一歩めをここで踏み出そう~
+      </p>
+    </div>
     <div class='store-btn'>
       <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
       <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
@@ -18,7 +20,7 @@
   <%# /画面上部の帯部分  %>
 
   <%# 講座一覧%>
-  <div class="course-content">
+  <div class="course-content course-top" >
     <div class="category-title" >
       最新投稿一覧
     </div>

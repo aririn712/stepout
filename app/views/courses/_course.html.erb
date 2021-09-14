@@ -1,20 +1,18 @@
-        <li class='list'>
+        <li class='course-one-list'>
           <div class='course-img-content'>
-            <%= link_to course_path(course.id) do %>
+          <%= link_to course_path(course.id) do %>
             <%if course.image.present?%>
               <%= image_tag course.image, class: "course-img" %>
             <%else%>
               <%= image_tag "22116720_s.jpg", class: "course-img" %>
             <% end %>
+          <% end %>
           </div>
           <div class='course-info'>
-            <h3 class='course-title'>
-              <%= course.title %>
-            </h3>
-            <div class='course-price'>
-              <span><%= course.price %>円</span>
-            </div>
+            <ul>
+              <li class="course-title"><%= link_to "#{course.title}", course_path(course.id), class: :course_title_link %></li>
+              <li><%= link_to "#{course.price}円", course_path(course.id), class: :course_price_link %></li>
+              <li><%= link_to "開講者: #{course.user.nickname}さん", "/users/#{course.user.id}", class: :course_user %></li>
+            </ul>
           </div>
-          <%= link_to course.user.nickname, "/users/#{course.user.id}", class: :course_user %>
-          <% end %>
         </li>
