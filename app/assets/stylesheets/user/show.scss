@@ -1,0 +1,41 @@
+.user-info {
+  padding: 7vh 0 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(193, 190, 190, 0.667);
+}
+
+.page-heading {
+  width: 30vw;
+  text-align: center;
+  font-size: 4vh;
+  color: #4d2a2a;
+}
+
+.user-profile {
+  margin-top: 1vh;
+  width: 50vw;
+  text-align: center;
+  font-size: 2vh;
+  padding: 3px;
+  color: #4d2a2a;
+}
+
+.user-edit {
+  width: 10vw;
+  text-align: center;
+  margin-top: 3vh;
+  margin-left: 60vw;
+}
+
+.user-edits {
+  font-size: 3vh;
+  text-decoration: none;
+  color: #4d2a2a;
+  background-color: rgb(249, 182, 58);
+  padding: 10px;
+  border: 3px solid #4d2a2a;
+  border-radius: 30px;
+}

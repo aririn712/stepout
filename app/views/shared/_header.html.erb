@@ -10,7 +10,7 @@
   </div>
   <div class='log-status'>
     <ul class='log-lists'>
-      <li><%= link_to "#{current_user.nickname} さん", "/users/#{current_user.id}", class: "user-nickname" %></li>
+      <li><%= link_to "ようこそ #{current_user.nickname} さん", "/users/#{current_user.id}", class: "user-nickname" %></li>
       <li><%= link_to '講座を開く', new_course_path, class: "course-up" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
     </ul>

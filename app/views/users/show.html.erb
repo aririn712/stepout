@@ -4,14 +4,16 @@
 <div class="main">
   <div class="user-info">
       <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのユーザーページ"%>
+        <%= "#{@user.nickname}"%>
       </h2>
-      <div class="user-edit">
-        <%= link_to "編集する", "/users/#{current_user.id}/edit", class: "user-edits" %>
-      </div>
       <div class="user-profile">
       <% if @user.profile.present? %>
         <%= @user.profile %>
+      <% end %>
+      </div>
+      <div class="user-edit">
+      <% if current_user.id == @user.id %> 
+        <%= link_to "編集する", "/users/#{current_user.id}/edit", class: "user-edits" %>
       <% end %>
       </div>
   </div>
