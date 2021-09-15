@@ -13,7 +13,7 @@
       </div>
       <div class="user-edit">
       <% if current_user.id == @user.id %> 
-        <%= link_to "編集する", "/users/#{current_user.id}/edit", class: "user-edits" %>
+        <%= link_to "プロフィール編集", "/users/#{current_user.id}/edit", class: "user-edits" %>
       <% end %>
       </div>
   </div>

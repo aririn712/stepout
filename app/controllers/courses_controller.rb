@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @order = Order.find_by(user_id: current_user.id, course_id: @course.id)
   end
 
   def edit
@@ -48,14 +49,9 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to "/users/#{current_user.id}"
   end
-
+  
   def search
     @courses = Course.search(params[:keyword])
-  end
-
-  def favorite
-    orders = Order.where(course_id: params[:course_id]).pluck(:user_id)
-    @order_users = User.includes(orders)
   end
 
   private

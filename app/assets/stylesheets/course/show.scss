@@ -1,0 +1,100 @@
+.course-main-info {
+  padding: 7vh 5vw 4vh 5vw;
+  border-top: 1px solid rgba(193, 190, 190, 0.667);
+}
+
+.course-title-content {
+  text-align: center;
+  font-size: 4vh;
+  font-weight: 900;
+  white-space: nowrap;
+  margin-bottom: 3vh;
+  color: #4d2a2a;
+}
+
+.course-detail-info {
+  display: flex;
+  margin-bottom: 4vh;
+}
+
+.item-img-content {
+  margin: 0 5vw 0;
+  width: 35vw;
+  height: 30vh;
+}
+
+.course-box-img {
+  width: 35vw;
+  height: 30vh;
+}
+
+.course-detail-content {
+  margin-top: 2vh;
+}
+
+.detail-title {
+  display: inline-block;
+  width: 10vw;
+}
+
+.course-price-content {
+  margin: 3vh 0 3vh;
+  text-align: center;
+}
+
+.price-number {
+  font-size: 4vh;
+  font-weight: 900;
+}
+
+.order-group {
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+.course-order-btn {
+  text-decoration: none;
+  color: brown;
+  border: 5px solid brown;
+  padding: 4px 4px 4px;
+  font-size: 3vh;
+  font-weight: 800;
+  border-radius: 6px;
+}
+
+.course-sub-content {
+  margin: 3vh 0 3vh;
+  width: 90vw;
+  border: 1px solid gray;
+  padding: 2vh 5vw 2vh;
+}
+
+.text-title {
+  font-size: 3vh;
+  font-weight: 600;
+  color: #4d2a2a;
+  margin-bottom: 1vh;
+}
+
+.text-message {
+  margin-bottom: 1vh;
+}
+
+.bottom-course-btn {
+  margin-top: 10vh ;
+  text-align: center;
+}
+
+.course-btn {
+  font-size: 3vh;
+  text-decoration: none;
+  color: #4d2a2a;
+  background-color: rgb(249, 182, 58);
+  padding: 10px;
+  border: 3px solid #4d2a2a;
+  border-radius: 30px;
+}
+
+.or-text {
+  margin: 2vh 0 2vh;
+}

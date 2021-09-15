@@ -63,12 +63,13 @@
 
 .course-top {
   padding: 5vh 0 5vh 0;
-  border-top: hidden
+  margin-top: 2vh;
 }
 
 .category-title {
   font-size: 3vh;
   margin-bottom: 3vh;
+  color: #4d2a2a;
 }
 
 .course-lists {
@@ -78,14 +79,15 @@
 
 .course-one-list {
   display: inline-block;
-  width: 30%;
-  margin: 0 20px;
+  width: 24vw;
+  height: 30vh;
+  margin: 1vh 1vw 1vh;
   height: auto;
 }
 
 .course-img {
   width: 24vw;
-  height: 30vh;
+  height: 25vh;
 }
 
 .course_title_link {
