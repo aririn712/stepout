@@ -1,18 +1,20 @@
-# テーブル設計
+# DB設計
 
 ## users テーブル
 
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
 | nickname           | string  | null: false               |
+| profile            | text    |                           |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
 
 
 ### Association
 
-- has_many :order_users
+- has_many :orders
 - has_many :courses
+- has_many :ord_courses, through: :orders, source: :course
 
 ## courses テーブル
 
