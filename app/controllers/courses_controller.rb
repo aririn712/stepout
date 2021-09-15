@@ -49,7 +49,7 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to "/users/#{current_user.id}"
   end
-  
+
   def search
     @courses = Course.search(params[:keyword])
   end
@@ -68,5 +68,4 @@ class CoursesController < ApplicationController
   def move_to_index
     redirect_to action: :index unless current_user.id == @course.user_id
   end
-
 end

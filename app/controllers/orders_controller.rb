@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   end
 
   private
-  
+
   def not_seller
     course = Course.find(params[:course_id])
     redirect_to root_path if current_user.id == course.user_id
@@ -33,5 +33,4 @@ class OrdersController < ApplicationController
     course = Course.find(params[:course_id])
     redirect_to root_path unless current_user.id == course.user_id
   end
-
 end

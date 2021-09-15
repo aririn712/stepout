@@ -9,7 +9,7 @@ class Course < ApplicationRecord
   belongs_to :time_zone
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Course.where('text_1 LIKE(?)', "%#{search}%").order('created_at DESC')
     else
       Course.all.order('created_at DESC')
