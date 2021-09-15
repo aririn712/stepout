@@ -1,0 +1,110 @@
+.main {
+  background-color: white;
+  padding-bottom: 40px;
+}
+
+.title-contents {
+  width: 100vw;
+  height: 425px;
+  background-image: image-url('background-img.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: relative;
+  box-shadow: inset 0 7px 20px -7px rgba(0, 0, 0, .5);
+}
+
+.service-contents {
+  width: 43vw;
+  position: absolute;
+  top: 3vh;
+  left: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-title {
+  white-space: nowrap;
+  font-size: 6vh;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.service-explain {
+  white-space: nowrap;
+  font-size: 4vh;
+  margin-left: 50px;
+}
+
+.store-btn {
+  position: absolute;
+  top: 35vh;
+  left: 60vw;
+  display: flex;
+}
+
+.apple-btn {
+  margin-right: 1vw;
+  height: 8vh;
+}
+
+.google-btn {
+  height: 8vh;
+}
+
+// コース一覧
+
+.course-content {
+  margin: 0 5vw 0 5vw;
+  padding: 5vh 0 5vh 0;
+  border-top: 2px solid rgb(218, 217, 217);
+}
+
+.course-top {
+  padding: 5vh 0 5vh 0;
+  margin-top: 2vh;
+}
+
+.category-title {
+  font-size: 3vh;
+  margin-bottom: 3vh;
+  color: #4d2a2a;
+}
+
+.course-lists {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.course-one-list {
+  display: inline-block;
+  width: 24vw;
+  height: 30vh;
+  margin: 1vh 1vw 1vh;
+  height: auto;
+}
+
+.course-img {
+  width: 24vw;
+  height: 25vh;
+}
+
+.course_title_link {
+  font-size: larger;
+  text-decoration: none;
+  color: black;
+}
+
+.course_price_link{
+  font-size: smaller;
+  text-decoration: none;
+  color: black;
+}
+
+.course_user {
+  text-decoration: none;
+  color: gray;
+}
+
+// コース一覧

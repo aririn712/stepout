@@ -32,10 +32,10 @@
         講座内容(一つ以上記入してください)
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :text_1, class:"items-text", id:"item-info", placeholder:"必須" ,rows:"7" ,maxlength:"1000" %>
-      <%= f.text_area :text_2, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
-      <%= f.text_area :text_3, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
-      <%= f.text_area :text_4, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :text_1, class:"items-text", id:"item-info", placeholder:"必須" ,rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_2, class:"items-text", id:"item-info", rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_3, class:"items-text", id:"item-info", rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_4, class:"items-text", id:"item-info", rows:"4" ,maxlength:"1000" %>
     </div>
 
     <div class="field">
@@ -64,7 +64,7 @@
 
     <div class="field">
       <div class="side-text">
-        その他に選んだ場合、またさらに必要な機材がある場合入力してください
+        その他に選んだ場合、また追加の機材がある場合入力してください
       </div>
       <%= f.text_field :other_machine, class:"items-text", id:"item-name", placeholder:"機材名（40文字まで)", maxlength:"40" %>
     </div>
@@ -82,22 +82,15 @@
         講座料金(¥100〜99,999)
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :price, class:"price-input", id:"course-price", placeholder:"例）300" %>
+      <%= f.text_field :price, class:"price-input", id:"course-price", placeholder:"例）300" %><span> 円</span>
     </div>
     <%# /講座内容 %>
 
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        出品をもちまして
-        <a href="#">加盟店規約</a>
-        に同意したことになります。
-      </p>
-    </div>
-    <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "保存する" ,class:"sell-btn" %>
+    </div>
+    <div class="back-root">
       <%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

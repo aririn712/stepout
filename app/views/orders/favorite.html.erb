@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+
+<div class="orders-lists">
+  <h2 class="order-title">
+    受講者一覧
+  </h2>
+  <%if @order_users.present?%>
+  <ul class="order-users-lists">
+    <% @order_users.each do |order_user| %>
+      <li class="order-users-list">
+        <%= link_to order_user.nickname, "/users/#{order_user.id}", class: :order_user %>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p class="none-order">受講予定者はいません</p>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>

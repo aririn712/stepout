@@ -1,9 +1,7 @@
-<div class="courses-sell-contents">
-  <header class="courses-sell-header">
-    <%= link_to image_tag('stepout-logo.png' , size: '185x50'), "/" %>
-  </header>
-  
-  <%=render partial: "form"%>
+<%= render "shared/second-header" %>
 
+<div class="courses-sell-contents">
+  <%=render partial: "form"%>
 </div>
+
 <%= render "shared/footer" %>

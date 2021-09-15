@@ -8,6 +8,14 @@ class Course < ApplicationRecord
   belongs_to :machine
   belongs_to :time_zone
 
+  def self.search(search)
+    if search != ""
+      Course.where('text_1 LIKE(?)', "%#{search}%").order('created_at DESC')
+    else
+      Course.all.order('created_at DESC')
+    end
+  end
+
   with_options presence: true do
     validates :title
     validates :text_1

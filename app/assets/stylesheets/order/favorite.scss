@@ -1,0 +1,35 @@
+.orders-lists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0 7px 20px -7px rgba(0, 0, 0, .5);
+  padding: 0 3vw 1vh 3vw;
+}
+
+.order-title {
+  margin: 10vh;
+  text-align: center;
+  font-size: 5vh;
+  font-weight: 700;
+  color: #4d2a2a;
+  padding-bottom: 1vh;
+  border-bottom: 2px solid gray;
+}
+
+.order-users-list {
+  text-align: center;
+  margin-top: 3vh;
+}
+
+.order_user {
+  font-size: 3vh;
+  text-decoration: none;
+  color: black;
+}
+
+.none-order {
+  font-size: 3vh;
+  text-align: center;
+  margin-top: 3vh;
+  color: black;
+}

@@ -1,98 +1,74 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+    padding: 0;
 }
 
-.top-page-header {
+.top-header {
+  background-color: white;
   width: 100vw;
-  padding: 2vh 15vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
-  justify-content: space-between;
+  height: 72px;
+  padding: 0px, 24px;
   align-items: center;
+  display: flex;
 }
 
 .stepout-icon {
-  width: 10vw;
-  margin-right: 10vw;
+  margin: 10px 20px 0 0;
+}
+
+.search-bar-contents {
+  width: 45%;
 }
 
 .search-form {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
+  max-width: none;
 }
 
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: orange;
-  padding: 8px;
+.input-box {
+  flex-direction: row-reverse;
+  margin: 10px 0 10px;
+  padding: 10px;
+  border: 3px solid #4d2a2a;
+  border-radius: 30px;
+  font-family: "游ゴシック", "YuGothic";
+  width: 90%;
+  outline: none;
 }
 
 .search-icon {
-  width: 100%;
+  display:none
 }
 
-.nav {
-  font-size: 18px;
+.log-status {
+  width: 40%;
+}
+
+.log-lists {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
 }
-
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
-}
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.brand-list {
-  text-decoration: none;
-  color: #333333;
-}
-
-.lists-right {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
-}
-
 
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
+  margin-right: 7vh;
+  color: #4d2a2a;
+  font-size: 18px;
+  white-space: nowrap;
 }
 
+.course-up {
+  text-decoration: none;
+  margin-right: 15vh;
+  color: #4d2a2a;
+  font-size: 18px;
+  white-space: nowrap;
+}
 
 .logout {
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.courseup {
-  text-decoration: none;
-  color: #333333;
+  color: #1c1d1f;
+  border: 2px solid #1c1d1f;
+  padding: 10px;
+  font-weight: 600;
+  white-space: nowrap;
 }

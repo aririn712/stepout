@@ -1,11 +1,21 @@
 <%= render "shared/header" %>
 
 
-<div class="user-main">
+<div class="main">
   <div class="user-info">
       <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのユーザーページ"%>
+        <%= "#{@user.nickname}"%>
       </h2>
+      <div class="user-profile">
+      <% if @user.profile.present? %>
+        <%= @user.profile %>
+      <% end %>
+      </div>
+      <div class="user-edit">
+      <% if current_user.id == @user.id %> 
+        <%= link_to "プロフィール編集", "/users/#{current_user.id}/edit", class: "user-edits" %>
+      <% end %>
+      </div>
   </div>
 
   <%#開講した講座一覧%>
@@ -27,7 +37,7 @@
 
   <%#受講希望した講座一覧%>
   <%if current_user.id == @user.id  %>
-  <div class="order-course">
+  <div class="course-content">
     <div class="category-title" >
       受講希望している講座
     </div>

@@ -1,90 +1,96 @@
 <%= render "shared/header" %>
 
 <div class="main">
+  <div class="course-main-info">
+  <%#講座内容%>
+    <div class="course-main-content">
 
-<%#講座内容%>
-  <div class="course-main-content">
-    <div class="course-img-content">
-    <%if @course.image.present?%>
-      <%= image_tag @course.image ,class:"course-box-img" %>
-    <%end%>
+      <div class="course-title-content">
+        <%= @course.title %>
+      </div>
+
+      <div class="course-detail-info">
+        <div class="item-img-content">
+        <%if @course.image.present?%>
+          <%= image_tag @course.image ,class:"course-box-img" %>
+        <% else %>
+          <%= image_tag "22116720_s.jpg", class: "course-box-img" %>
+        <%end%>
+        </div>
+
+        <div class="course-detail">
+          <div class="course-detail-content">
+            <span class="detail-title">カテゴリー : </span><span class="detail-message"><%=@course.category.name%></span>
+          </div>
+          <div class="course-detail-content">
+            <span class="detail-title">開講者 : </span><%= link_to @course.user.nickname, "/users/#{@course.user.id}", class: :course_info_user %>
+          </div>
+          <div class="course-detail-content">
+            <span class="detail-title">講習時間 : </span><span class="detail-message"><%=@course.hour.name%></span>
+          </div>
+          <div class="course-detail-content">
+          <%if @course.machine.id < 11%>
+            <span class="detail-title">必要になる機材 : </span><span class="detail-message"><%=@course.machine.name%></span>
+            <%if @course.other_machine.present?%>
+            <span class="detail-message"> , <%=@course.other_machine%></span>
+            <% end %>
+          <%else%>
+            <span class="detail-title">必要になる機材 : </span><span class="detail-message"><%=@course.other_machine%></span>
+          <% end %>
+          </div>
+          <div class="course-detail-content">
+            <span class="detail-title">受講可能な時間帯 : </span><span class="detail-message"><%=@course.time_zone.name%></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-price-content">
+        <span class="price-number">¥<%=@course.price%></span>
+      </div>
     </div>
 
-    <div class="course-title-content">
-      <%= @course.title %>
+    <%if current_user.id == @course.user_id %>
+      <div class="order-group">
+        <%= link_to "受講者希望リスト", "/courses/#{@course.id}/orders/favorite", method: :get, class: "course-order-btn" %>
+      </div>
+    <% end %>
+
+    <div class="course-sub-content">
+      <p class="text-title">講座内容</p>
+      <p class="text-message">・<%= @course.text_1%></p>
+      <%if @course.text_2.present?%>
+      <p class="text-message">・<%= @course.text_2%></p>
+      <% end %>
+      <%if @course.text_3.present?%>
+      <p class="text-message">・<%= @course.text_3%></p>
+      <% end %>
+      <%if @course.text_4.present?%>
+      <p class="text-message">・<%= @course.text_4%></p>
+      <% end %>
     </div>
 
-    <div class="course-detail">
-      <div class="course-detail-content">
-        <span class="detail-title">カテゴリー : </span><span class="detail-message"><%=@course.category.name%></span>
-      </div>
-      <div class="course-detail-content">
-        <span class="detail-title">作成者 : </span><%= link_to @course.user.nickname, "/users/#{@course.user.id}", class: :course_user %>
-      </div>
-      <div class="course-detail-content">
-        <span class="detail-title">講習時間 : </span><span class="detail-message"><%=@course.hour.name%></span>
-      </div>
-      <div class="course-detail-content">
-      <%if @course.machine.id < 11%>
-        <span class="detail-title">必要になる機材 : </span><span class="detail-message"><%=@course.machine.name%></span>
-        <%if @course.other_machine.present?%>
-        <span class="detail-message"> , <%=@course.other_machine%></span>
+    <%#/講座内容%>
+
+    <%#編集or受講ボタン%>
+    <div class="bottom-course-btn">
+      <% if user_signed_in? %>
+        <% if current_user.id == @course.user_id%>
+          <%= link_to "講座の編集", edit_course_path(@course.id), method: :get, class: "course-btn" %>
+          <p class="or-text">or</p>
+          <%= link_to "講座を削除", course_path(@course.id), method: :delete, class:"course-btn" %>
+        <% else %>
+          <% unless current_user.like?(@course) %>
+            <%= link_to "受講を希望する", "/courses/#{@course.id}/orders", method: :post ,class:"course-btn"%>
+          <% else %>
+            <%= link_to "受講希望を取り消す", "/courses/#{@course.id}/orders/#{@order.id}", method: :delete ,class:"course-btn"%>
+          <% end %>
         <% end %>
-      <%else%>
-        <span class="detail-title">必要になる機材 : </span><span class="detail-message"><%=@course.other_machine%></span>
       <% end %>
-      </div>
-      <div class="course-detail-content">
-        <span class="detail-title">受講可能な時間帯 : </span><span class="detail-message"><%=@course.time_zone.name%></span>
-      </div>
     </div>
 
-    <div class="course-price-content">
-      ¥<span class="price-number"><%=@course.price%></span>
-    </div>
+    <%#/編集or受講ボタン%>
+
   </div>
-
-  <%if current_user.id == @course.user_id %>
-    <div class="order-group">
-      <%= link_to "受講者希望リスト", favorite_courses_path(@course.id), method: :get, class: "course-btn" %>
-    </div>
-  <% end %>
-
-  <div class="course-sub-content">
-    <p class="text-title">講座内容</p>
-    <p class="text-message"><%= @course.text_1%></p>
-    <%if @course.text_2.present?%>
-    <p class="text-message"><%= @course.text_2%></p>
-    <% end %>
-    <%if @course.text_3.present?%>
-    <p class="text-message"><%= @course.text_3%></p>
-    <% end %>
-    <%if @course.text_4.present?%>
-    <p class="text-message"><%= @course.text_4%></p>
-    <% end %>
-  </div>
-
-  <%#/講座内容%>
-
-  <%#編集or受講ボタン%>
-
-  <% if user_signed_in? %>
-    <% if current_user.id == @course.user_id%>
-      <%= link_to "講座の編集", edit_course_path(@course.id), method: :get, class: "course-btn" %>
-      <p class="or-text">or</p>
-      <%= link_to "講座を削除", course_path(@course.id), method: :delete, class:"course-destroy" %>
-    <% else %>
-      <% unless current_user.like?(@course) %>
-        <%= link_to "受講を希望する", course_orders_path(@course.id), method: :post ,class:"course-btn"%>
-      <% else %>
-        <%= link_to "受講希望を取り消す", course_order_path(@course.id), method: :delete ,class:"course-btn"%>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <%#/編集or受講ボタン%>
-
-  
 
 </div>
 
