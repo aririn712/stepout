@@ -1,6 +1,6 @@
 # アプリ名
 
-### StepOut
+## StepOut
 
 # 概要
 
