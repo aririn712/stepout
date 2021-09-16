@@ -57,15 +57,15 @@
 
     <div class="course-sub-content">
       <p class="text-title">講座内容</p>
-      <p class="text-message">・<%= @course.text_1%></p>
+      <p class="text-message">・<%= safe_join(@course.text_1.split("\n"),tag(:br)) %></p>
       <%if @course.text_2.present?%>
-      <p class="text-message">・<%= @course.text_2%></p>
+      <p class="text-message">・<%= safe_join(@course.text_2.split("\n"),tag(:br)) %></p>
       <% end %>
       <%if @course.text_3.present?%>
-      <p class="text-message">・<%= @course.text_3%></p>
+      <p class="text-message">・<%= safe_join(@course.text_3.split("\n"),tag(:br)) %></p>
       <% end %>
       <%if @course.text_4.present?%>
-      <p class="text-message">・<%= @course.text_4%></p>
+      <p class="text-message">・<%= safe_join(@course.text_4.split("\n"),tag(:br)) %></p>
       <% end %>
     </div>
 

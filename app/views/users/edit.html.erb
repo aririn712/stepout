@@ -1,36 +1,33 @@
 <%= render "shared/second-header" %>
 
-<%= form_with model: @user, class: 'registration-main', local: true do |f| %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      プロフィール編集
-    </h1>
-  </div>
+<div class="courses-sell-contents">
+  <div class="courses-sell-main">
+    <h2 class='courses-sell-title'>プロフィール編集</h2>
+    <%= form_with model: @user, class: 'registration-main', local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
 
-  <%= render 'shared/error_messages', model: f.object %>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">ニックネーム</label>
-      <span class="indispensable">必須</span>
+      <div class="field">
+        <div class="side-text">
+          ニックネーム
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :nickname, class:"items-text", id:"nickname", placeholder:"例) ステップ太郎", maxlength:"40" %>
+      </div>
+      
+      <div class="field">
+        <div class="side-text">
+          プロフィール
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :profile, class:"items-text", id:"profile", placeholder:"例) 〇〇です。よろしくお願いします！",rows:"7" ,maxlength:"1000" %>
+      </div>
+      
+      <div class="sell-btn-contents">
+        <%= f.submit "編集する" ,class:"sell-btn" %>
+      </div>
     </div>
-    <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) ステップ太郎", maxlength:"40" %>
-  </div>
-  
-  
-  
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">プロフィール</label>
-    </div>
-    <%= f.text_area :profile, class:"input-default", id:"profile", placeholder:"例) 〇〇です。よろしくお願いします！" %>
-  </div>
-  
-  <div class='register-btn'>
-    <%= f.submit "変更する" ,class:"register-red-btn" %>
+    <% end %>
   </div>
 </div>
-<% end %>
 
 <%= render "shared/footer"%>

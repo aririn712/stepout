@@ -8,7 +8,7 @@
       </h2>
       <div class="user-profile">
       <% if @user.profile.present? %>
-        <%= @user.profile %>
+        <%= safe_join(@user.profile.split("\n"),tag(:br)) %>
       <% end %>
       </div>
       <div class="user-edit">
