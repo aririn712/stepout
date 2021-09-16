@@ -15,12 +15,26 @@
 
 # DEMO
 ## 新規登録画面
+[![Image from Gyazo](https://i.gyazo.com/e9ff157967d63dcc8b841ea7324cc877.gif)](https://gyazo.com/e9ff157967d63dcc8b841ea7324cc877)
+
 ## トップページ (講座一覧画面)
+[![Image from Gyazo](https://i.gyazo.com/b8c82632f1222aef9ca476bcc27faa06.jpg)](https://gyazo.com/b8c82632f1222aef9ca476bcc27faa06)
+
 ## 開講画面
+[![Image from Gyazo](https://i.gyazo.com/d0623542b1fa568ba13f2dafb6a300b9.gif)](https://gyazo.com/d0623542b1fa568ba13f2dafb6a300b9)
+
 ## 講座詳細画面 (開講者側)
+[![Image from Gyazo](https://i.gyazo.com/6a53b389c10786f101cb0aa6745fcd5f.gif)](https://gyazo.com/6a53b389c10786f101cb0aa6745fcd5f)
+
 ## 講座詳細画面 (受講者側)
+[![Image from Gyazo](https://i.gyazo.com/8b0514c36dd75a4fd3d19bb3ff2ecc2c.gif)](https://gyazo.com/8b0514c36dd75a4fd3d19bb3ff2ecc2c)
+
 ## ユーザーページ
+[![Image from Gyazo](https://i.gyazo.com/f8b6f63f12dec907dc01e6ea1e8e55e1.gif)](https://gyazo.com/f8b6f63f12dec907dc01e6ea1e8e55e1)
+
 ## プロフィール編集画面
+[![Image from Gyazo](https://i.gyazo.com/ba6747514c435bd4af82d4ca005fa170.png)](https://gyazo.com/ba6747514c435bd4af82d4ca005fa170)
+
 ## 受講希望者一覧画面
 
 # 工夫したポイント

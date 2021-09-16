@@ -51,7 +51,7 @@
 
     <%if current_user.id == @course.user_id %>
       <div class="order-group">
-        <%= link_to "受講者希望リスト", "/courses/#{@course.id}/orders/favorite", method: :get, class: "course-order-btn" %>
+        <%= link_to "受講希望者リスト", "/courses/#{@course.id}/orders/favorite", method: :get, class: "course-order-btn" %>
       </div>
     <% end %>
 
