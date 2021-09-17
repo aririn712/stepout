@@ -4,9 +4,13 @@
   <div class="category-title" >
       検索結果
   </div>
+  <% if @courses.present? %>
     <ul class='course-lists'>
       <%= render partial: 'course', collection: @courses%>
     </ul>
+  <% else %>
+    一致するものは見つかりませんでした
+  <% end %>
 </div>
 
 <%= render "shared/footer" %>
