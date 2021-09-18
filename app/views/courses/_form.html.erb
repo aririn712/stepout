@@ -24,7 +24,7 @@
         講座名(わかりやすく講座紹介)
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :title, class:"items-text", id:"course-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
     </div>
 
     <div class="field">
@@ -32,10 +32,10 @@
         講座内容(一つ以上記入してください)
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :text_1, class:"items-text", id:"item-info", placeholder:"必須 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
-      <%= f.text_area :text_2, class:"items-text", id:"item-info", placeholder:" 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
-      <%= f.text_area :text_3, class:"items-text", id:"item-info", placeholder:" 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
-      <%= f.text_area :text_4, class:"items-text", id:"item-info", placeholder:" 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_1, class:"items-text", id:"item-info-1", placeholder:"必須 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_2, class:"items-text", id:"item-info-2", placeholder:" 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_3, class:"items-text", id:"item-info-3", placeholder:" 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
+      <%= f.text_area :text_4, class:"items-text", id:"item-info-4", placeholder:" 1000文字以内でわかりやすく記述しましょう" ,rows:"4" ,maxlength:"1000" %>
     </div>
 
     <div class="field">
@@ -66,7 +66,7 @@
       <div class="side-text">
         その他に選んだ場合、また追加の機材がある場合入力してください
       </div>
-      <%= f.text_field :other_machine, class:"items-text", id:"item-name", placeholder:"機材名（40文字まで)", maxlength:"40" %>
+      <%= f.text_field :other_machine, class:"items-text", id:"other-machine", placeholder:"機材名（40文字まで)", maxlength:"40" %>
     </div>
 
     <div class="field">

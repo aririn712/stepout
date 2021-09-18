@@ -18,7 +18,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # ユーザー情報を入力する
       fill_in '例) test太郎', with: @user.nickname
       fill_in 'PC・携帯どちらでも可', with: @user.email
-      fill_in '6文字以上の半角英数字', with: @user.password
+      fill_in 'password', with: @user.password
       fill_in '同じパスワードを入力して下さい', with: @user.password_confirmation
       fill_in '例) 〇〇です。よろしくお願いします！', with: @user.profile
       # 新規登録ボタンを押すと、ユーザーモデルのカウントが1上がることを確認する
@@ -98,5 +98,26 @@ RSpec.describe 'ログイン', type: :system do
       # ログインページへ戻されることを確認する
       expect(current_path).to eq(new_user_session_path)
     end
+  end
+end
+
+RSpec.describe 'ユーザーページ', type: :system do
+  before do
+    @user1 = FactoryBot.create(:user)
+    @user2 =FactoryBot.create(:user)
+  end
+  it 'ログインいているとユーザーページに訪れることができる' do
+    # ログインする
+    sign_in(@user1)
+    # @user2のユーザーページに遷移する
+    visit "/users/#{@user2.id}"
+    # @user2のユーザーページに遷移できたことを確認する
+    expect(current_path).to eq("/users/#{@user2.id}")
+  end
+  it 'ログインしていなくてもユーザーページに訪れることができる' do
+    # @user2のユーザーページに遷移する
+    visit "/users/#{@user2.id}"
+    # @user2のユーザーページに遷移できたことを確認する
+    expect(current_path).to eq("/users/#{@user2.id}")
   end
 end

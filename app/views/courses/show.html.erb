@@ -77,7 +77,7 @@
         <% if current_user.id == @course.user_id%>
           <%= link_to "講座の編集", edit_course_path(@course.id), method: :get, class: "course-btn" %>
           <p class="or-text">or</p>
-          <%= link_to "講座を削除", course_path(@course.id), method: :delete, class:"course-btn" %>
+          <%= link_to "講座を削除", course_path(@course.id), method: :delete, class:"course-btn", id: "destroy-btn" %>
         <% else %>
           <% unless current_user.like?(@course) %>
             <%= link_to "受講を希望する", "/courses/#{@course.id}/orders", method: :post ,class:"course-btn"%>
