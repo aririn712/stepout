@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "受講を希望する", type: :system do
+RSpec.describe '受講を希望する', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @course = FactoryBot.create(:course)
@@ -14,9 +14,9 @@ RSpec.describe "受講を希望する", type: :system do
       # 詳細ページに受講を希望するボタンがあることを確認する
       expect(page).to have_content('受講を希望する')
       # 受講を希望するボタンを押すとOrderモデルのカウントが1増えることを確認する
-      expect{
+      expect do
         find_link('受講を希望する', href: "/courses/#{@course.id}/orders").click
-      }.to change { Order.count }.by(1)
+      end.to change { Order.count }.by(1)
       # 詳細ページに受講希望を取り消すボタンがあることを確認する
       expect(page).to have_content('受講希望を取り消す')
     end
@@ -42,10 +42,9 @@ RSpec.describe "受講を希望する", type: :system do
       expect(current_path).to eq(new_user_session_path)
     end
   end
-  
 end
 
-RSpec.describe "受講希望を取り消す", type: :system do
+RSpec.describe '受講希望を取り消す', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @course = FactoryBot.create(:course)
@@ -61,9 +60,9 @@ RSpec.describe "受講希望を取り消す", type: :system do
       # 詳細ページに受講希望を取り消すボタンがあることを確認する
       expect(page).to have_content('受講希望を取り消す')
       # 受講を希望するボタンを押すとOrderモデルのカウントが1減ることを確認する
-      expect{
+      expect do
         find_link('受講希望を取り消す', href: "/courses/#{@course.id}/orders/#{@order.id}").click
-      }.to change { Order.count }.by(-1)
+      end.to change { Order.count }.by(-1)
       # 詳細ページに受講希望ボタンがあることを確認する
       expect(page).to have_content('受講を希望する')
     end
@@ -85,7 +84,6 @@ RSpec.describe "受講希望を取り消す", type: :system do
       expect(current_path).to eq(new_user_session_path)
     end
   end
-  
 end
 
 RSpec.describe '受講生一覧', type: :system do

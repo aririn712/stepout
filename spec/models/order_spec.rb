@@ -18,12 +18,12 @@ RSpec.describe Order, type: :model do
       it 'user_idが空だと申請できないこと' do
         @order.user = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("User must exist")
+        expect(@order.errors.full_messages).to include('User must exist')
       end
       it 'course_idが空だと申請できないこと' do
         @order.course_id = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("Course must exist")
+        expect(@order.errors.full_messages).to include('Course must exist')
       end
     end
   end

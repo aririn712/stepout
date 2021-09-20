@@ -22,9 +22,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in '同じパスワードを入力して下さい', with: @user.password_confirmation
       fill_in '例) 〇〇です。よろしくお願いします！', with: @user.profile
       # 新規登録ボタンを押すと、ユーザーモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       # トップページに遷移したことを確認する
       expect(current_path).to eq(root_path)
       # ログアウトボタンがあることを確認する
@@ -52,9 +52,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in '同じパスワードを入力して下さい', with: ''
       fill_in '例) 〇〇です。よろしくお願いします！', with: ''
       # 新規登録ボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(0)
+      end.to change { User.count }.by(0)
       # 新規登録ページに戻されることを確認する
       expect(current_path).to eq user_registration_path
     end
@@ -104,7 +104,7 @@ end
 RSpec.describe 'ユーザーページ', type: :system do
   before do
     @user1 = FactoryBot.create(:user)
-    @user2 =FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:user)
   end
   it 'ログインいているとユーザーページに訪れることができる' do
     # ログインする

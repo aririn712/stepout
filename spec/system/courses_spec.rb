@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "講座を開く", type: :system do
+RSpec.describe '講座を開く', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @course = FactoryBot.create(:course)
@@ -23,9 +23,9 @@ RSpec.describe "講座を開く", type: :system do
       select '早朝', from: 'course-time-zone'
       fill_in 'course-price', with: @course.price
       # 送信するとCouseモデルのカウントが1上がることを確認るる
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Course.count }.by(1)
+      end.to change { Course.count }.by(1)
       # ユーザーページに遷移することを確認する
       expect(current_path).to eq("/users/#{@user.id}")
       # ユーザーページに先ほど開講した講座が存在することを確認する
@@ -48,7 +48,7 @@ RSpec.describe '講座詳細', type: :system do
     @user = FactoryBot.create(:user)
     @course = FactoryBot.create(:course)
   end
-  
+
   context '詳細が見れる時' do
     it 'ログインしたユーザーは詳細を見れる' do
       # ログインする
@@ -64,7 +64,7 @@ RSpec.describe '講座詳細', type: :system do
       expect(page).to have_content(@course.title)
     end
   end
-  
+
   context '詳細が見れない時' do
     it 'ログインしていなければ詳細を見れない' do
       # ＠courseのユーザーページを訪れる
@@ -76,7 +76,6 @@ RSpec.describe '講座詳細', type: :system do
       expect(current_path).to eq(new_user_session_path)
     end
   end
-
 end
 
 RSpec.describe '講座を編集する', type: :system do
@@ -104,9 +103,9 @@ RSpec.describe '講座を編集する', type: :system do
       # 編集する
       fill_in 'course-name', with: '編集完了'
       # 編集してもCourseモデルのカウントは変わらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Course.count }.by(0)
+      end.to change { Course.count }.by(0)
       # 講座詳細画面に遷移することを確認する
       expect(current_path).to eq(course_path(@course1.id))
       # 詳細画面に先ほど編集した内容が存在することを確認する
@@ -155,9 +154,9 @@ RSpec.describe '講座を削除する', type: :system do
       # 詳細画面に削除ボタンがあることを確認する
       expect(page).to have_content('講座を削除')
       # 削除するとCourseモデルのカウントが1減る
-      expect{
+      expect do
         find_link('講座を削除', href: course_path(@course1)).click
-      }.to change { Course.count }.by(-1)
+      end.to change { Course.count }.by(-1)
       # ユーザーページに遷移したことを確認する
       expect(current_path).to eq("/users/#{@course1.user.id}")
     end
