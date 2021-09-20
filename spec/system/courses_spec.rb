@@ -130,6 +130,8 @@ RSpec.describe '講座を編集する', type: :system do
     it 'ログインしていなければ編集画面に遷移できない' do
       # @course2の項の講座に遷移しようとする
       visit course_path(@course2.id)
+      # ログインページに遷移してしまったことを確認する
+      expect(current_path).to eq(new_user_session_path)
     end
   end
 end
@@ -175,6 +177,8 @@ RSpec.describe '講座を削除する', type: :system do
     it 'ログインしていなければ削除できない' do
       # @course2の項の講座に遷移しようとする
       visit course_path(@course2.id)
+      # ログインページに遷移してしまったことを確認する
+      expect(current_path).to eq(new_user_session_path)
     end
   end
 end

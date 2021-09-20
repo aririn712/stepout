@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :course do
-    title        { 'test' }
+    title        { Faker::Name.name }
     text_1  { Faker::Lorem.sentence }
     text_2  { Faker::Lorem.sentence }
     text_3  { Faker::Lorem.sentence }
