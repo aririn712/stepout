@@ -15,7 +15,7 @@
 
 # DEMO
 ## 新規登録画面
-[![Image from Gyazo](https://i.gyazo.com/e9ff157967d63dcc8b841ea7324cc877.gif)](https://gyazo.com/e9ff157967d63dcc8b841ea7324cc877)
+[![Image from Gyazo](https://i.gyazo.com/8f5a3a4cbe2de03e1e3f9b13e76f3244.gif)](https://gyazo.com/8f5a3a4cbe2de03e1e3f9b13e76f3244)
 
 トップページに遷移する際、ログインしていなければこちらの画面に遷移します。新規登録画面とログイン画面は行き来することができ、必要事項を入力していただくことで、トップページに遷移できます。
 
